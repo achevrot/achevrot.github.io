@@ -68,3 +68,11 @@ body {
 .md-typeset code {
     border: 1px solid rgba(0, 229, 255, 0.18);
 }
+
+.neon-portrait {
+    border-radius: 14px;
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    box-shadow:
+        0 0 18px rgba(0, 229, 255, 0.25),
+        0 0 22px rgba(255, 43, 214, 0.18);
+}
