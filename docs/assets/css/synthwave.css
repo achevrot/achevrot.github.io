@@ -1,0 +1,70 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --neon-pink: #ff2bd6;
+    --neon-cyan: #00e5ff;
+    --deep-purple: #12001f;
+    --mid-purple: #2a0048;
+
+    /* Material CSS variables overrides (best-effort) */
+    --md-primary-fg-color: var(--neon-pink);
+    --md-accent-fg-color: var(--neon-cyan);
+}
+
+/* Base typography */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+    font-family: "Orbitron", "Inter", system-ui, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.md-typeset {
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Background: synthwave gradient + subtle grid */
+body {
+    background:
+        radial-gradient(1000px 600px at 70% 20%, rgba(255, 43, 214, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 20% 10%, rgba(0, 229, 255, 0.14), transparent 60%),
+        linear-gradient(180deg, #07000d 0%, var(--deep-purple) 45%, #05000a 100%);
+}
+
+.md-main__inner {
+    padding-top: 1rem;
+}
+
+/* Neon header / tabs */
+.md-header,
+.md-tabs {
+    background: rgba(10, 0, 20, 0.65) !important;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 43, 214, 0.25);
+    box-shadow: 0 0 18px rgba(255, 43, 214, 0.22);
+}
+
+/* Links: neon glow on hover */
+.md-typeset a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+}
+
+.md-typeset a:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px rgba(255, 43, 214, 0.5);
+}
+
+/* “Card-like” content blocks */
+.md-typeset .admonition,
+.md-typeset details {
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    background: rgba(18, 0, 31, 0.55);
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.10);
+}
+
+/* Code blocks slightly styled */
+.md-typeset code {
+    border: 1px solid rgba(0, 229, 255, 0.18);
+}
