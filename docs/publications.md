@@ -1,3 +1,9 @@
 # Publications
 
-This page is generated automatically from Google Scholar.
+## 2026
+- **Title** — *Venue*  
+  <small>Authors</small> — [DOI](...) [PDF](...)
+
+## 2025
+- **Title** — *Venue*  
+  <small>Authors</small>
