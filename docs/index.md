@@ -1,7 +1,7 @@
 # Antoine Chevrot
 Associate Professor, Department of computer science and complex systems, University Marie and Louis Pasteur
+I work on **[topic 1]**, **[topic 2]**, and **[topic 3]**.
 
-**Research interests:** topic A, topic B, topic C.
-
-I work on … (2–3 sentences).  
-You can reach me at: antoine.chevrot@umlp.fr
+- **Publications:** generated from Google Scholar
+- **Projects:** research software / datasets / collaborations
+- **Teaching:** courses, materials
