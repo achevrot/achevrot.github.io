@@ -1,0 +1,73 @@
+# ===== Python =====
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# ===== IDE / Editors =====
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.#*
+
+# ===== OS Generated =====
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ===== Project Specific =====
+# Local build output (deployed via GitHub Actions)
+docs/
+
+# Local development
+.cache/
+tmp/
+temp/
+
+# Logs
+*.log
+logs/
+
+# ===== Secrets / Local Config =====
+.env
+.env.local
+config.local.py
+secrets.py

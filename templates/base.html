@@ -1,0 +1,84 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ meta.get('title', 'Academic Portfolio') }} | Dr. Your Name</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+
+<body>
+    <!-- Python-themed header -->
+    <header class="python-header">
+        <div class="container">
+            <div class="logo">
+                <span class="python-blue">Dr.</span><span class="python-yellow">Antoine Chevrot</span>
+                <span class="cursor">_</span>
+            </div>
+            <nav class="main-nav">
+                {% for item in nav_items %}
+                <a href="{{ item.href }}" class="nav-link">{{ item.title }}</a>
+                {% endfor %}
+            </nav>
+        </div>
+    </header>
+
+    <!-- Terminal-style hero (for index page) -->
+    {% if meta.get('hero') %}
+    <section class="terminal-hero">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-button red"></span>
+                <span class="terminal-button yellow"></span>
+                <span class="terminal-button green"></span>
+                <span class="terminal-title">python researcher.py</span>
+            </div>
+            <div class="terminal-body">
+                <pre><code class="language-python">{{ meta.get('hero_code', '') }}</code></pre>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Main content -->
+    <main class="container main-content">
+        {% if toc and meta.get('show_toc') %}
+        <aside class="toc-sidebar">
+            <h3>Contents</h3>
+            {{ toc | safe }}
+        </aside>
+        {% endif %}
+
+        <article class="content {% if toc and meta.get('show_toc') %}with-toc{% endif %}">
+            <h1 class="page-title">{{ meta.get('title', '') }}</h1>
+            {{ content | safe }}
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="python-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="code-comment"># Connect with me</p>
+                <div class="social-links">
+                    <a href="mailto:{{ meta.get('email', '') }}" class="social-link">Email</a>
+                    <a href="https://github.com/{{ meta.get('github', '') }}" class="social-link">GitHub</a>
+                    <a href="https://scholar.google.com/citations?user={{ meta.get('scholar', '') }}"
+                        class="social-link">Scholar</a>
+                </div>
+                <p class="copyright">
+                    <span class="python-blue">©</span> 2026
+                    <span class="python-yellow">Built with Python</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

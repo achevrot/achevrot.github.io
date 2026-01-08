@@ -1,0 +1,545 @@
+/* static/css/style.css */
+
+/* ===== Python Color Palette ===== */
+:root {
+    --python-blue: #306998;
+    --python-blue-light: #4B8BBE;
+    --python-yellow: #FFD43B;
+    --python-yellow-dark: #FFE873;
+    --python-dark: #1e1e1e;
+    --python-darker: #141414;
+    --python-gray: #2d2d2d;
+    --python-light-gray: #3c3c3c;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-green: #4ec9b0;
+    --accent-orange: #ce9178;
+}
+
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--python-dark);
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ===== Python-Themed Header ===== */
+.python-header {
+    background: linear-gradient(135deg, var(--python-blue) 0%, var(--python-darker) 100%);
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--python-yellow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.python-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.python-blue {
+    color: var(--python-blue-light);
+}
+
+.python-yellow {
+    color: var(--python-yellow);
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: var(--python-yellow);
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.main-nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: 'Consolas', monospace;
+}
+
+.nav-link:hover {
+    background: var(--python-yellow);
+    color: var(--python-dark);
+}
+
+.nav-link::before {
+    content: '>>> ';
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover::before {
+    opacity: 1;
+}
+
+/* ===== Terminal Hero Section ===== */
+.terminal-hero {
+    padding: 3rem 0;
+    background: var(--python-darker);
+}
+
+.terminal-window {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+    background: var(--python-gray);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-button.red {
+    background: #ff5f56;
+}
+
+.terminal-button.yellow {
+    background: #ffbd2e;
+}
+
+.terminal-button.green {
+    background: #27ca40;
+}
+
+.terminal-title {
+    margin-left: 1rem;
+    color: var(--text-secondary);
+    font-family: 'Consolas', monospace;
+    font-size: 0.875rem;
+}
+
+.terminal-body {
+    background: var(--python-darker);
+    padding: 1.5rem;
+}
+
+.terminal-body pre {
+    margin: 0;
+}
+
+.terminal-body code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+    padding: 3rem 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.content {
+    flex: 1;
+    max-width: 100%;
+}
+
+.content.with-toc {
+    max-width: calc(100% - 250px);
+}
+
+.page-title {
+    color: var(--python-yellow);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--python-blue);
+    font-family: 'Consolas', monospace;
+}
+
+.page-title::before {
+    content: 'class ';
+    color: var(--python-blue-light);
+    font-weight: normal;
+}
+
+.page-title::after {
+    content: ':';
+    color: var(--text-primary);
+}
+
+/* ===== Typography ===== */
+.content h2 {
+    color: var(--python-blue-light);
+    margin: 2rem 0 1rem;
+    font-family: 'Consolas', monospace;
+}
+
+.content h2::before {
+    content: 'def ';
+    color: var(--python-blue-light);
+    opacity: 0.7;
+}
+
+.content h2::after {
+    content: '():';
+    color: var(--text-secondary);
+}
+
+.content h3 {
+    color: var(--accent-green);
+    margin: 1.5rem 0 0.75rem;
+}
+
+.content h3::before {
+    content: '# ';
+    color: var(--text-secondary);
+}
+
+.content p {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.content a {
+    color: var(--python-yellow);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--python-yellow);
+    transition: all 0.3s ease;
+}
+
+.content a:hover {
+    color: var(--python-yellow-dark);
+    border-bottom-style: solid;
+}
+
+/* ===== Code Blocks ===== */
+.content pre {
+    background: var(--python-darker);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border-left: 4px solid var(--python-blue);
+}
+
+.content code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+}
+
+.content p code {
+    background: var(--python-gray);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: var(--accent-orange);
+}
+
+/* ===== Lists ===== */
+.content ul,
+.content ol {
+    margin: 1rem 0 1rem 2rem;
+}
+
+.content li {
+    margin-bottom: 0.5rem;
+}
+
+.content li::marker {
+    color: var(--python-yellow);
+}
+
+/* ===== Tables ===== */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.content th {
+    background: var(--python-blue);
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.content td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--python-gray);
+}
+
+.content tr:hover {
+    background: var(--python-gray);
+}
+
+/* ===== Table of Contents Sidebar - DEBUG ===== */
+.toc-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+    background: var(--python-gray);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--python-yellow);
+}
+
+.toc-sidebar h3 {
+    color: var(--python-yellow);
+    margin-bottom: 1rem;
+    font-family: 'Consolas', monospace;
+}
+
+/* Reset default list styles from .toc div */
+.toc-sidebar .toc ul,
+.toc-sidebar>ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toc-sidebar .toc li,
+.toc-sidebar>ul li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-sidebar .toc a,
+.toc-sidebar>ul a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+.toc-sidebar .toc a:hover,
+.toc-sidebar>ul a:hover {
+    color: var(--python-yellow);
+}
+
+/* ===== TOC Hierarchy Styling ===== */
+
+/* Level 1 - Main sections (h2) */
+.toc-sidebar .toc>ul>li>a,
+.toc-sidebar>ul>li>a {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.3rem 0;
+}
+
+.toc-sidebar .toc>ul>li>a::before,
+.toc-sidebar>ul>li>a::before {
+    content: '▸ ';
+    color: var(--python-yellow);
+}
+
+.toc-sidebar .toc>ul>li>a:hover,
+.toc-sidebar>ul>li>a:hover {
+    color: var(--python-yellow);
+}
+
+/* Level 2 - Subsections (h3) */
+.toc-sidebar .toc>ul>li>ul,
+.toc-sidebar>ul>li>ul {
+    margin-left: 1rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--python-light-gray);
+    margin-top: 0.25rem;
+}
+
+.toc-sidebar .toc>ul>li>ul>li,
+.toc-sidebar>ul>li>ul>li {
+    margin-bottom: 0.3rem;
+}
+
+.toc-sidebar .toc>ul>li>ul>li>a,
+.toc-sidebar>ul>li>ul>li>a {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 0.2rem 0;
+}
+
+.toc-sidebar .toc>ul>li>ul>li>a::before,
+.toc-sidebar>ul>li>ul>li>a::before {
+    content: '– ';
+    color: var(--python-blue-light);
+    opacity: 0.7;
+}
+
+.toc-sidebar .toc>ul>li>ul>li>a:hover,
+.toc-sidebar>ul>li>ul>li>a:hover {
+    color: var(--python-blue-light);
+}
+
+/* ===== Publication Cards ===== */
+.publication {
+    background: var(--python-gray);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--python-blue);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication:hover {
+    transform: translateX(5px);
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.publication-title {
+    color: var(--python-yellow);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.publication-venue {
+    color: var(--python-blue-light);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.publication-authors {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.publication-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pub-link {
+    background: var(--python-blue);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.pub-link:hover {
+    background: var(--python-blue-light);
+}
+
+/* ===== Footer ===== */
+.python-footer {
+    background: var(--python-darker);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 3px solid var(--python-blue);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.code-comment {
+    color: var(--accent-green);
+    font-family: 'Consolas', monospace;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--python-blue);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--python-blue);
+    color: white;
+}
+
+.copyright {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .python-header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .content.with-toc {
+        max-width: 100%;
+    }
+
+    .toc-sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .nav-link::before {
+        display: none;
+    }
+}
