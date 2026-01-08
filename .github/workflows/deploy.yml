@@ -8,7 +8,7 @@ on:
   workflow_dispatch:  # Manual trigger
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -30,11 +30,15 @@ jobs:
     
     - name: 📄 List generated files
       run: ls -la docs/
-    
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: https://achevrot.github.io/
+    runs-on: ubuntu-latest
+    steps:
     - name: 🚀 Deploy to GitHub Pages
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
+      uses: actions/deploy-pages@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
         publish_branch: gh-pages
