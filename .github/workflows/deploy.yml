@@ -31,16 +31,16 @@ jobs:
         pip install -r requirements.txt
 
     - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
+      id: pages
+      uses: actions/configure-pages@v5
 
     - name: 🔨 Build website
-        run: python build.py
+      run: python build.py
     
     - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./docs
     
     - name: 📄 List generated files
       run: ls -la docs/
