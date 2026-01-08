@@ -7,7 +7,7 @@ hero_code: |
         def __init__(self):
             self.name = "Dr. Antoine Chevrot"
             self.position = "Assistant Professor"
-            self.university = "Marie et Louis Pasteur"
+            self.university = "Marie and Louis Pasteur"
             self.interests = [
                 "Machine Learning",
                 "Autonomous Testing",

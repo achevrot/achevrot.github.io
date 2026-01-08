@@ -1,7 +1,3 @@
-## 5. GitHub Actions Workflow
-
-```yaml
-# .github/workflows/deploy.yml
 name: Build and Deploy Website
 
 on:
